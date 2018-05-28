@@ -1,8 +1,10 @@
 package com.grant.RxjavaDome;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity：Rxjava：";
 
@@ -334,5 +336,19 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bh_btn:
+                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.group_btn:
+                Intent groupintent = new Intent(MainActivity.this,GroupActivity.class);
+                startActivity(groupintent);
+                break;
+        }
     }
 }
